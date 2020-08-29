@@ -1,0 +1,43 @@
+.navbar {
+    font-family: 'Lato', sans-serif;
+    margin-top: 3em;
+    border: none !important;
+  }
+  .font-mono{
+    font-family: 'Major Mono Display', monospace !important;
+ }
+    .purple{
+        color:  #ba1423;
+    } 
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    background-color: white;
+    color: black;
+  }
+  
+  .navbar-default .navbar-brand,
+  .navbar-default .navbar-nav > li > a {
+    color: black;
+  }
+  .navbar-default .navbar-brand {
+    font-weight: 700;
+    font-size: 1.25em;
+    letter-spacing: 3px;
+  }
+  
+  .container-fluid {
+    background-color: #fff;
+  }
+  
+  .navbar-toggle {
+    border: none !important;
+  }
+  
+  .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #fff !important;    
+    border: none !important;
+  }
+  
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+  }
+  
