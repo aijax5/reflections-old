@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 def getConnection():
     mydb = mysql.connector.connect(
     host="localhost",
@@ -30,7 +29,7 @@ def createQueryBuilder():
                     upVoteCount INTEGER,
                     downVoteCount INTEGER, 
                     PRIMARY KEY(blogID),
-                    FOREIGN KEY(authorID) REFERENCES User(userID))""",
+                    FOREIGN KEY(authorID) REFERENCES User(userID) ON DELETE CASCADE)""",
         "comment" : """CREATE TABLE Comment(
                     comID INTEGER NOT NULL,
                     comDesc VARCHAR(255),
@@ -38,7 +37,7 @@ def createQueryBuilder():
                     downCount INTEGER,
                     postID INTEGER, 
                     PRIMARY KEY(comID),
-                    FOREIGN KEY(postID) REFERENCES Blog(blogID))""",
+                    FOREIGN KEY(postID) REFERENCES Blog(blogID) ON DELETE CASCADE)""",
         "tag" : """CREATE TABLE Tag(
                     tagID INTEGER NOT NULL,
                     tagName VARCHAR(255), 
@@ -46,8 +45,8 @@ def createQueryBuilder():
         "tagmap" : """CREATE TABLE TagMap(
                     blogID INTEGER NOT NULL,
                     tagID INTEGER NOT NULL,
-                    FOREIGN KEY(blogID) REFERENCES Blog(blogID),
-                    FOREIGN KEY(tagID) REFERENCES Tag(tagID))"""
+                    FOREIGN KEY(blogID) REFERENCES Blog(blogID) ON DELETE CASCADE,
+                    FOREIGN KEY(tagID) REFERENCES Tag(tagID) ON DELETE CASCADE)"""
     }
     return object
 
