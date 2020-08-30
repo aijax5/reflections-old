@@ -25,29 +25,38 @@ def insertIntoTable(queryObj,table,values):
     insert_sql = queryObj[table]
     try:
         mycurr.execute(insert_sql,values)
+        print(values,": successfull")
     except mysql.connector.Error as error:
         print(values,error)
     myconn.commit()
     myconn.close()
 
+def searchByTopic(topicName):
+    myconn = getConnection()
+    mycurr = myconn.cursor()
+    mycurr.execute("USE Test")
+    insert_sql = queryObj["search"]
+    try:
+        mycurr.execute(insert_sql,values)
+        print(values,": successfull")
+    except mysql.connector.Error as error:
+        print(values,error)
+    myconn.commit()
+    myconn.close()
 def populate():
     CreateTable.create()
     queryObj = createQueryBuilder()
     # User insert
-    value = (1,"Anupam1","anupam")
+    value = (1,"user1","password")
     insertIntoTable(queryObj,"user",value)
-    value = (2,"Anupam2","anupam")
+    value = (2,"user2","password")
     insertIntoTable(queryObj,"user",value)
     # Blog insert
-    value = (1,"Anupam_first","agghghgh",1,1,0)
+    value = (1,"Introduction ","This is first blog of user1",1,1,0)
     insertIntoTable(queryObj,"blog",value)
-    value = (2,"Anupam_second","khkjhhkh",1,0,1)
+    value = (2,"Overview","This is second blog of user1",1,0,1)
     insertIntoTable(queryObj,"blog",value)
-    value = (1,"Anupam_new","hjfkjshh",2,0,0)
-    insertIntoTable(queryObj,"blog",value)
-    value = (3,"Anupam_second","khkjhhkh",11,0,1)
-    insertIntoTable(queryObj,"blog",value)
-    value = (None,"Anupam_new","hjfkjshh",2,0,0)
+    value = (3,"CS Fundamentals","This is first blog of user2",2,0,1)
     insertIntoTable(queryObj,"blog",value)
     # Comment Insert
     value = (1,"review1",1,1,1)
@@ -55,6 +64,8 @@ def populate():
     value = (2,"review2",1,0,2)
     insertIntoTable(queryObj,"comment",value)
     value = (3,"review3",1,0,3)
+    insertIntoTable(queryObj,"comment",value)
+    value = (4,"review4",1,0,1)
     insertIntoTable(queryObj,"comment",value)
     # Tag Insert
     value = (1,"CS")
@@ -70,5 +81,5 @@ def populate():
     insertIntoTable(queryObj,"tagmap",value)
     value = (3,3)
     insertIntoTable(queryObj,"tagmap",value)
-
-populate()
+    value = (2,1)
+    insertIntoTable(queryObj,"tagmap",value)
