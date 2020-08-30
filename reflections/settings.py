@@ -81,11 +81,7 @@ DATABASES = {
         'USER': 'aijax',             
         'PASSWORD': 'aijax',                  
         'HOST': '',                     
-        'PORT': '',                      
-    # }
-        # 'OPTIONS': {
-        #     'read_default_file': '/etc/mysql/my.cnf',
-        # },
+        'PORT': '',
     }
 }
 
